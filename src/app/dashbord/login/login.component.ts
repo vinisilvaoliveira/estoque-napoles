@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
     }else {
       console.log('entou');
       if (this.loginData.value.username === 'italo' && this.loginData.value.password === '@italo2021') {
+        localStorage.setItem('logado', this.loginData.value.username)
         this.router.navigateByUrl('/clientes');
       }else {
         console.log('test');

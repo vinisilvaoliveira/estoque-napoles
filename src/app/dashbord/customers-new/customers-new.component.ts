@@ -25,6 +25,9 @@ export class CustomersNewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem("logado") !== 'italo') {
+      this.router.navigateByUrl('/login');
+    }
     this.createForm();
     this.data_client = JSON.parse(localStorage.getItem("data_client"));
     if (this.router.url.includes('clientes/cliente')) {

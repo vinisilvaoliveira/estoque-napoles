@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../shared/models/customer';
 import {CustomerService} from '../../shared/services/customer.service';
 import {take} from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customers-list',
@@ -32,11 +33,16 @@ export class CustomersListComponent implements OnInit {
 ]
   constructor(
     // private customerService: CustomerService
+    private router: Router,
   ) {
     // localStorage.setItem('data_client', JSON.stringify(this.setarJson))
   }
 
   ngOnInit(): void {
+
+    if (localStorage.getItem("logado") !== 'italo') {
+      this.router.navigateByUrl('/login');
+    }
 
     if (localStorage.getItem("data_client")) {
       this.customers = JSON.parse(localStorage.getItem("data_client"));

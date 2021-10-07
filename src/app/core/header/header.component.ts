@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   slideIndex = 0;
 
+  logado: any;
   topPosToStartShowing = 10;
   showButton: boolean;
   isLogged = false;
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.showButton = false;
     this.checkScroll();
     this.isLogged = this.tokenStorageService.isLoggedIn() ? true : false;
@@ -29,6 +31,11 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:scroll')
 
   checkScroll(): void {
+    if (localStorage.getItem("logado") !== 'italo') {
+      this.logado = true;
+      console.log('ta logado', this.logado);
+
+    }
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     if (scrollPosition >= this.topPosToStartShowing) {
