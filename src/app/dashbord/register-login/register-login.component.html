@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="loginForm">
+    <form action="" class="form"  [formGroup]="loginData">
+        <div class="col-12 form__box">
+            <label class="label">Usuário:</label>
+            <div>
+                <input type="text" class="text-input" placeholder="Usuario" formControlName="username" autocomplete="off">
+
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="label">Senha:</label>
+            <div>
+                <input type="text" class="text-input" placeholder="Senha"  formControlName="password" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="button">
+            <button class="button__btn" (click)="login()">Cadastrar Usuário do Sistema</button>
+        </div>
+    </form>
+</div>

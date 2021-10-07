@@ -1,0 +1,104 @@
+<section class="draw">
+    <div class="container">
+        <div class="description_payment"  id="paymentData">
+            <p class="wow fadeInRightBig">Para reservar seu(s) numero(s) clique no numero(s) escolhido(s), veja abaixo dos numeros as opções de pagamento, faça a transfêrencia TED, DOC ou PIX
+                e clique no botão Reservar números</p>
+            <!-- <div class="buttons wow fadeInUp">
+                <button class="btn" (click)="popUpOn()">Entrar em contato e enviar o comprovante</button>
+            </div> -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="legend">
+            <button type="submit" class="btn available wow bounceInLeft" (click)="filter(true)">Disponível ({{numbersAvailable.length}})</button>
+            <button type="submit" class="btn reserved wow fadeInRightBig" (click)="filter(false)">Indisponível ({{numbersReserved.length}})</button>
+            <button type="submit" class="btn selected wow fadeInRightBig"  data-wow-delay="0.5s" (click)="selected()">Selecionado ({{listItem.length}})</button>
+        </div>
+
+        <div class="numberSort">
+            <button type="submit" [disabled]="!numberSelect.active" *ngFor="let numberSelect of numbers, let i = index"
+                [ngClass]="{'selected': findColors(numberSelect)}" (click)="getNumber(numberSelect)"
+                class="rifa_number item_reservado tooltip_flip">
+                {{numberSelect.number}}
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<app-lightbox *ngIf="modal" (closeModal)="modal = false" class="infos__lightbox">
+    <div class="reserved_number">
+        <h2>Reserva de número</h2>
+        <label class="label">Deseja reservar o(s) número(s):
+        </label>
+            <p *ngFor="let item of listItem">{{item.number}}
+                <button (click)="removeCompra(item)"><i class="fa fa-times"></i></button>
+
+            </p>
+    </div>
+    <div class="valueTotal">
+        <label class="label">Valor total: 
+        </label>
+        <span>{{ listItem.length * 25 | currency:'BRL':true}}
+        </span>
+    </div>
+    <form action="" [formGroup]="dataClient">
+    <div class="d-flex align-center">
+        <label class="label">Nome Completo:</label>
+        <div class="size">
+            <input type="text" 
+                [ngClass]="{'error': dataClient.get('name').invalid && (dataClient.get('name').dirty || dataClient.get('name').touched)}"
+                class="text-input" 
+                placeholder="Nome" 
+                formControlName="name"
+                onkeyup="this.value=this.value.replace(/[<>!@#$%*~;&1234567890():=]/g,'')">
+            <span class="txtError"
+                *ngIf=" dataClient.get('name').invalid && (dataClient.get('name').dirty || dataClient.get('name').touched)">
+                nome inválido.
+             </span>
+        </div>
+    </div>
+
+    <div class="d-flex align-center">
+        <label class="label">Numero Celuar:</label>
+        <div class="size">
+            <input type="tel" 
+                [ngClass]="{'error': dataClient.get('tel').invalid && (dataClient.get('tel').dirty || dataClient.get('tel').touched)}"
+                mask="(00)00000-0000" 
+                formControlName="tel"
+                class="text-input" 
+                placeholder="(00) 00000-0000">
+                <span class="txtError"
+                *ngIf=" dataClient.get('tel').invalid && (dataClient.get('tel').dirty || dataClient.get('tel').touched)">
+                Telefone inválido.
+                </span>
+        </div>
+    </div>
+
+    <div class="card" [style.background-color]="toggle2 ? '#ffff' : 'rgba(214, 214, 214, .3)'">
+        te
+        </div>
+
+
+    <div class="buttons">
+        <button type="submit" class="btn" (click)="sendMessage()">Enviar</button>
+    </div>
+
+    <!-- <div class="buttons">
+        <a href="https://{{isMobile() ? 'api.whatsapp.com' : 'web.whatsapp.com'}}/send?phone=5511951460560&text=Nome: {{clientName}}, Telefone: +{{clientTel}} +, Número(s) escolhido(s) {{numbersChoose}}"
+        target="_blank" class="linkWhatsapp"> enviar </a>
+    </div> -->
+
+
+
+</form>
+</app-lightbox>
+
+<app-lightbox *ngIf="modalVoid" (closeModal)="modalVoid = false" class="infos__lightbox">
+ <p class="noting">Selecione um numero</p>
+</app-lightbox>
+
+
+<app-menu-bottom *ngIf="listItem.length > 0" (finalizarCompra)="popUpOn()">
+
+</app-menu-bottom>

@@ -1,0 +1,48 @@
+<div class="acquiredNumbers">
+    <div class="container">
+        <section class="draw">
+            <div class="container">
+                <div class="title">
+                    <p>Numeros disponiveis:</p>
+                </div>
+                <div class="numberSort">
+                    <button type="submit"
+                        *ngFor="let numberSelect of numbers, let i = index"
+                        class="rifa_number item_reservado tooltip_flip"
+                        [ngClass]="{'selected': findColors(numberSelect)}"
+                        (click)="getNumber(numberSelect)"
+                        >
+                        {{ numberSelect.number }}
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="name">
+            <p>{{customer?.name}}</p>
+        </div>
+
+            <div class="button">
+                <button class="button__btn" (click)="add(listItem)">Adicionar <i class="fa fa-plus"></i></button>
+                <button class="button__btn" (click)="remove(listItemRemove)">Remover <i class="fa fa-trash"></i></button>
+            </div>
+        <!-- </div> -->
+    </div>
+
+    <section class="draw">
+        <div class="container">
+            <div class="title">
+                <p>Numeros contratados:</p>
+            </div>
+            <div class="numberSort">
+                <button type="submit"
+                    *ngFor="let item of numbersContract, let i = index"
+                    class="rifa_number item_reservado tooltip_flip"
+                    [ngClass]="{'selected': findColorsRemove(item)}"
+                    (click)="getNumberRemove(item)"
+                    >
+                    {{ item.number }}
+                </button>
+            </div>
+        </div>
+    </section>

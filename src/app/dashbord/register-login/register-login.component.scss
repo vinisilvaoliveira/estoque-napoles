@@ -1,0 +1,75 @@
+@import "../../core/sass/variables";
+
+.loginForm {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-input {
+    width: 100%;
+}
+
+.text-input {
+    font-family: $OpenSans;
+    font-size: 14px;
+    padding: 10px 14px;
+    border: 1px solid black;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    transition: 0.1s ease-in;
+    width: 100%;
+    color: #212121;
+    &:hover {
+        box-shadow: 0 9px 6px rgba(0, 0, 0, 0.1);
+    }
+    &:focus {
+        box-shadow: 0 3px 6px rgba(40, 255, 230, 0.3);
+    }
+}
+
+.label {
+    margin: 0;
+    padding: 0;
+    font-family: $Poppins;
+    font-size: 14px;
+    color: #474747;
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    &__btn {
+        background: $blue_dark;
+        color: $white;
+        padding: 15px 30px;
+        border: solid 1px $white;
+        border-radius: 4px;
+        font-family: $Poppins;
+        transition: all 0.3s;
+        position: absolute;
+        &:hover {
+            background-color: $blue;
+            color: #000;
+            border: none;
+            transform: translate(0, -4px);
+            box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.txtError {
+    color: red;
+    margin: 1px 0 0 0;
+    font-size: 11px;
+  }
+  .error {
+      input {
+          border: 1px solid red !important;
+      }
+  }

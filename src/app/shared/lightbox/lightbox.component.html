@@ -1,0 +1,10 @@
+<div class="Lightbox">
+  <div class="Lightbox__box">
+    <ng-content></ng-content>
+
+    <button class="Lightbox__box--close" (click)="closeModal.emit($event)">
+      <i class="fa fa-times"></i>
+    </button>
+
+  </div>
+</div>

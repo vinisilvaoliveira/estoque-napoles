@@ -1,0 +1,28 @@
+@import "../sass/variables";
+
+.footer {
+    background: $blue_dark;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 0;
+    p {
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        font-family: $OpenSans;
+        margin-bottom: 0;
+    }
+    .links {
+        display: flex;
+        justify-content: center;
+        a {
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            font-family: $OpenSans;
+            text-decoration: none;
+            margin-right: 3px;
+        }
+    }
+}

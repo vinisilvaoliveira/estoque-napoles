@@ -1,0 +1,94 @@
+<div class="container-fluid w-100 mb-5">
+  <form [formGroup]="formBrand">
+    <div class="row mt-3">
+      <div class="col-lg-8 col-sm-12 mb-3 mb-lg-0">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/clientes">Produtos</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> {{customer?.id ? 'Editar' : 'Novo Produto' }}</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col-lg-2 col-sm-12 mb-3 mb-lg-0">
+        <button type="button" class="btn btn-secondary w-100" routerLink="/clientes">Cancelar</button>
+      </div>
+      <div class="col-lg-2 col-sm-12 mb-3 mb-lg-0">
+        <button
+          type="button"
+          class="btn btn-primary w-100"
+          (click)="save()"
+          [disabled]="formBrand.invalid">Salvar
+        </button>
+      </div>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="hasError">
+      Não foi possível carregar algumas informações. Por favor,
+      <div class="alert-link" (click)="ngOnInit()">tente novamente.</div>
+    </div>
+    <div class="row mt-3" *ngIf="!hasError">
+      <div class="col-12 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Informações do Produto</h5>
+            <hr>
+            <div class="form-row">
+              <div class="form-group col-12 mb-3">
+                <label for="categorieName">Nome</label>
+                <input type="text" class="form-control" id="categorieName" formControlName="name"
+                       placeholder="Digite o Nome do Produto"
+                       [ngClass]="cssError(formBrand.get('name'))">
+                <div id="field-name" class="invalid-feedback">
+                  Por favor, insira o Nome do Produto.
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12 mb-3">
+                <label for="categorieName"> Código</label>
+                <input type="tel" class="form-control" id="cod" formControlName="cod"
+                       placeholder="Digite o Código do Produto"
+                       [ngClass]="cssError(formBrand.get('cod'))">
+                <div id="field-email" class="invalid-feedback">
+                  Por favor, insira o Código.
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12 mb-3">
+                <label for="categorieName">Lote</label>
+                <input type="text" class="form-control" id="lote" formControlName="lote" placeholder="Digite o código do Lote"
+                       [ngClass]="cssError(formBrand.get('lote'))">
+                <div id="field-phone" class="invalid-feedback">
+                  Por favor, insira o Lote.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-12 mb-3">
+                <label for="categorieName">Validade</label>
+                <input type="tel" class="form-control" id="validade" mask="00/00/0000" formControlName="validade" placeholder="Digite a Validade"
+                       [ngClass]="cssError(formBrand.get('validade'))">
+                <div id="field-phone" class="invalid-feedback">
+                  Por favor, insira o Validade.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-12 mb-3">
+                <label for="categorieName">Total</label>
+                <input type="text" class="form-control" id="total" formControlName="total" placeholder="Digite o Total"
+                       [ngClass]="cssError(formBrand.get('total'))">
+                <div id="field-phone" class="invalid-feedback">
+                  Por favor, insira o Total.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

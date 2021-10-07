@@ -1,0 +1,76 @@
+@import "../../core/sass/variables";
+
+.acquiredNumbers {
+    padding: 20px 0;
+    .name {
+        text-align: center;
+        p {
+            font-weight: bold;
+            font-size: 20px;
+            font-family: $Poppins;
+        }
+    }
+}
+
+.draw {
+    padding: 60px 0 0;
+    .title {
+        font-size: 20px;
+        font-family: $Poppins;
+    }
+    .numberSort {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: start;
+        margin-top: 15px;
+        margin-bottom: 40px;
+        .rifa_number {
+            width: 46px;
+            height: 46px;
+            margin: 3px;
+            z-index: 10;
+            font-weight: bold;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $Poppins ;
+            color: #000;
+            border-color: $blue_dark;
+            background-color: #fff;
+        }
+        .selected {
+            background-color: blue;
+            color: #fff;
+          }
+    }
+}
+
+.adicionar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    &__btn {
+        background: $blue_dark;
+        color: $white;
+        padding: 15px 30px;
+        border: solid 1px $white;
+        border-radius: 4px;
+        font-family: $Poppins;
+        transition: all 0.3s;
+        &:hover {
+            background-color: $blue;
+            color: #000;
+            border: none;
+            transform: translate(0, -2px);
+            box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
+        }
+    }
+}

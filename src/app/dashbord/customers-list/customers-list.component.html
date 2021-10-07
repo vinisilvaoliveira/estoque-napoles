@@ -1,0 +1,65 @@
+
+<app-header></app-header>
+<div class="container-fluid w-100">
+
+  <div class="d-flex justify-content-between m-3">
+    <div>
+      <h3>Produtos</h3>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" routerLink="novo-cliente"  > + Novo Produto</button>
+    </div>
+
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="form-group col-lg-12 col-sm-12 mb-3 mb-lg-0">
+        <label for="name">Pesquisa:</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" (input)="search(searchInput.value)" id="name" placeholder="Digite para pesquisar..."
+                 aria-label="Camiseta Leblon James"
+                 aria-describedby="basic-addon2" #searchInput>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="search(searchInput.value)" type="button"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning mr-3 ml-3" role="alert" *ngIf="customers.length === 0 && !hasError">
+    Não encontramos nenhum cliente.
+  </div>
+  <div class="alert alert-danger mr-3 ml-3" role="alert" *ngIf="hasError">
+    Não foi possível carregar algumas informações. Por favor,
+    <div class="alert-link" (click)="ngOnInit()">tente novamente.</div>
+  </div>
+  <div class="card mb-3 mr-3 ml-3" *ngIf="!hasError && customers.length !== 0">
+    <div class="table-responsive">
+
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col" style="width: 20%">Nome</th>
+          <th scope="col" style="width: 20%">Codigo</th>
+          <th scope="col" style="width: 20%">Lote</th>
+          <th scope="col" style="width: 20%">Validade</th>
+          <th scope="col" style="width: 10%">Total</th>
+          <th scope="col" style="width: 10%">Editar</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr scope="row" class="row-table" *ngFor="let c of search(searchInput.value)" >
+          <td>{{c.name}}</td>
+          <td>{{c.cod}}</td>
+          <td>{{c.lote}}</td>
+          <td>{{c.validade.substr(0, 2) + '/' + c.validade.substr(2, 2) + '/' + c.validade.substr(4)}}</td>
+          <td>{{c.total}}</td>
+          <td><i class="fa fa-edit text-primary" routerLink="/clientes/cliente/{{c.id}}"></i></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

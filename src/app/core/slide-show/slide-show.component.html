@@ -1,0 +1,16 @@
+
+<div class="description-moto">
+        <span class="wow bounceInLeft" data-wow-delay="0.4s" >Compre seu numero e concorra a moto<br>Por apenas: 25,00</span>
+        <p class="wow bounceInLeft" data-wow-delay="0.6s" >- Semi Nova</p>
+        <p class="wow bounceInLeft" data-wow-delay="0.8s" >- 30.000 km</p>
+        <p class="wow bounceInLeft" data-wow-delay="1s" >- Documentação OK</p>
+</div>
+<div class="slideshow">
+        <ngx-slick-carousel class="carousel" 
+        #slickModal="slick-carousel" 
+        [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <img src="{{ slide.img }}" alt="">
+        </div>
+        </ngx-slick-carousel>
+</div>

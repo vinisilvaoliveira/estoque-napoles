@@ -1,0 +1,105 @@
+@import "../sass/variables";
+
+.header {
+    display: flex;
+    background: $blue_dark;
+    padding-bottom: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    .container {
+        padding-bottom: 0!important;
+    }
+    .logo {
+        margin-bottom: -3px;
+    }
+    .login {
+        justify-content: flex-end!important;
+    }
+    .allTo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h2 {
+            font-size: 2.5rem;
+            font-family: $OpenSans;
+            color: $white;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        .link {
+            border: 1px solid #fff;
+            padding: 10px 30px;
+            color: #fff;
+            text-decoration: none;
+            transition: all .2s;
+            border-radius: 4px;
+            font-size: 18px;
+            font-family: $Poppins;
+            &:hover {
+                transform: translateY(-5px);
+                background: #fff;
+                color: $blue_dark;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+#menuFixo {
+    z-index: 99999;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    .allTo {
+        width: 100%;
+    }
+}
+
+.link_insta {
+    display: flex;
+    align-items: center;
+    i {
+        color: #fff;
+        font-size: 2.5rem;
+        margin-right: 15px;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        .logo {
+            margin-left: -7px;
+            display: none;
+            img {
+                width: 100%;
+            }
+        }
+        .login {
+            display: none;
+        }
+        .allTo {
+            width: 100%;
+            padding: 5px 0;
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .link_insta {
+        font-size: 1.5rem;
+    }
+    #menuFixo {
+        padding: 5px 0;
+    }
+  }
